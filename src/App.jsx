@@ -7,29 +7,37 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage';
 import ArticlePage from './pages/ArticlePage';
 import ArticleList from './pages/ArticleListPage';
+import Layout from './Layout';
+import NotFoundPage from './pages/NotFoundPage';
 
 const routes = [{
   path: '/',
-  element: <HomePage />
-}, {
-  path: '/about',
-  element: <AboutPage />
-},{
-  path: '/articlelist',
-  element: <ArticleList />
-},{
-  path: '/article',
-  element: <ArticlePage />
-}
-]
+  element: <Layout />,
+  errorElement: <NotFoundPage />,
+  children: [{
+    path: '/',
+    element: <HomePage />
+  }, {
+    path: '/about',
+    element: <AboutPage />
+  },{
+    path: '/articles',
+    element: <ArticleList />
+  },{
+    path: '/articles/:name', // -> /articles/learn-react
+    element: <ArticlePage />
+  }]
+}]
+
+ 
 
 const router = createBrowserRouter(routes);
 function App() {
 
   return (
-    
-    <RouterProvider router={router} />
-    
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
