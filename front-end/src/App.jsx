@@ -2,10 +2,11 @@ import{
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
+import axios from 'axios';
 import './App.css'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage';
-import ArticlePage from './pages/ArticlePage';
+import ArticlePage, { loader as articleLoader } from './pages/ArticlePage';
 import ArticleList from './pages/ArticleListPage';
 import Layout from './Layout';
 import NotFoundPage from './pages/NotFoundPage';
@@ -25,7 +26,8 @@ const routes = [{
     element: <ArticleList />
   },{
     path: '/articles/:name', // -> /articles/learn-react
-    element: <ArticlePage />
+    element: <ArticlePage />,
+    loader: articleLoader,
   }]
 }]
 
