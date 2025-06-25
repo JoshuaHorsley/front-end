@@ -2,7 +2,7 @@ import{
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
-import axios from 'axios';
+
 import './App.css'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage';
@@ -10,6 +10,8 @@ import ArticlePage, { loader as articleLoader } from './pages/ArticlePage';
 import ArticleList from './pages/ArticleListPage';
 import Layout from './Layout';
 import NotFoundPage from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage';
+import CreateAccountPage from './pages/CreateAccountPage';
 
 const routes = [{
   path: '/',
@@ -28,6 +30,12 @@ const routes = [{
     path: '/articles/:name', // -> /articles/learn-react
     element: <ArticlePage />,
     loader: articleLoader,
+  }, {
+    path: '/login',
+    element: <LoginPage />,
+  },{
+    path: '/create-account',
+    element: <CreateAccountPage />,
   }]
 }]
 
