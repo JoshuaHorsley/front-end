@@ -10,7 +10,8 @@ export default function LoginPage() {
 
     async function logIn() {
         try{
-            await signInWithEmailAndPassword(getAuth(), email, setPassword);
+            await signInWithEmailAndPassword(getAuth(), email, password);
+            navigate('/articles');
         } catch (e) {
             setError(e.message);
         }
