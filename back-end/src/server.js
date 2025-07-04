@@ -40,12 +40,22 @@ async function connectToDB() {
 
 app.get('/api/articles/:name', async (req, res) => {
     const { name } = req.params
-
-
-
     const article = await db.collection('articles').findOne( { name });
 
     res.json(article);
+});
+
+app.use(async function(req, res, next) {
+    const { authtoken } = req.headers;
+
+    if (authtoken){
+        const user = await admin.auth().verifyIdToken(authtoken);
+        req.user = user;
+    }else{
+        res.sendStatus(400);
+    }
+
+    next();
 });
 
 app.post('/api/articles/:name/upvote', async (req, res) => {
