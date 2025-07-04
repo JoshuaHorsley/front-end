@@ -35,3 +35,5 @@ firebase-config.js
 
 # API keys
 **/config/keys.js
+
+back-end/credentials.json
