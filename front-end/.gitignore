@@ -38,3 +38,4 @@ firebase-config.js
 
 back-end/credentials.json
 back-end/dist
+back-end/.env
