@@ -37,3 +37,4 @@ firebase-config.js
 **/config/keys.js
 
 back-end/credentials.json
+back-end/dist
